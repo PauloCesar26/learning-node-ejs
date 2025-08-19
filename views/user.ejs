@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Usuários Cadastrados</title>
+</head>
+<body>
+  <h1>Lista de Usuários</h1>
+  <ul>
+    <% user.forEach(users => { %>
+      <li><%= users.nome %> - <%= users.email %></li>
+    <% }) %>
+  </ul>
+
+  <a href="/">Voltar</a>
+</body>
+</html>
