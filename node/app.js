@@ -45,7 +45,7 @@ app.post("/enviar", (req, res) => {
             return res.status(500).send(err);
         }
         else{
-            res.redirect("/user");
+            res.redirect("/");
         }
     });
 });
@@ -64,6 +64,35 @@ app.get("/user", (req, res) => {
             });
         }
     });
+});
+
+app.get("/user-info", (req, res) => {
+    const sql = "SELECT * FROM infoUsers";
+
+    db.query(sql, (err, result) => {
+        if(err){
+            console.error("Erro ao buscar dados: ", err);
+            return res.status(500).send(err);
+        }
+        else{
+            res.render("user-info.ejs", {
+                user: result
+            });
+        }
+    });
+});
+
+app.post("/user/delete/:id", (req, res) => {
+    const { id } = req.params;
+
+    db.query("DELETE FROM infoUsers WHERE id = ?", [id], (err, result) => {
+        if(err){
+            console.error("Erro ao buscar dados: ", err);
+        }
+        else{
+            res.redirect("/user");
+        }
+    })
 });
 
 app.listen(3000, () => {
