@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Usuários Cadastrados</title>
+</head>
+<body>
+  <h1>Lista de Usuários</h1>
+  <ul>
+    <% if(user && user.length > 0) { %>
+       <% console.log(user) %>
+      <% user.forEach(users => { %>
+        <li>
+          <%= users.nome %> - <%= users.email %>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <li>Nenhum user encontrado</li>
+    <% } %>
+  </ul>
+</body>
+</html>

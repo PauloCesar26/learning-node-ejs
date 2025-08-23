@@ -32,7 +32,7 @@ db.connect((err) => {
 });
 
 app.get("/", (req, res) => {
-    res.render("index.ejs");
+    res.render("admin/index");
 });
 
 app.post("/enviar", (req, res) => {
@@ -59,14 +59,14 @@ app.get("/user", (req, res) => {
             return res.status(500).send(err);
         }
         else{
-            res.render("user.ejs", {
+            res.render("user/user", {
                 user: result
             });
         }
     });
 });
 
-app.get("/user-info", (req, res) => {
+app.get("/admin-user", (req, res) => {
     const sql = "SELECT * FROM infoUsers";
 
     db.query(sql, (err, result) => {
@@ -75,14 +75,14 @@ app.get("/user-info", (req, res) => {
             return res.status(500).send(err);
         }
         else{
-            res.render("user-info.ejs", {
+            res.render("admin/admin-user", {
                 user: result
             });
         }
     });
 });
 
-app.post("/user/delete/:id", (req, res) => {
+app.post("/admin-user/delete/:id", (req, res) => {
     const { id } = req.params;
 
     db.query("DELETE FROM infoUsers WHERE id = ?", [id], (err, result) => {
@@ -90,7 +90,7 @@ app.post("/user/delete/:id", (req, res) => {
             console.error("Erro ao buscar dados: ", err);
         }
         else{
-            res.redirect("/user");
+            res.redirect("/admin-user");
         }
     })
 });
