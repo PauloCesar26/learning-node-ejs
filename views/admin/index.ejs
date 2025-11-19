@@ -6,19 +6,18 @@
 </head>
 <body>
   <h1>Cadastro de Usuário</h1>
-    <form action="/enviar" method="POST">
+    <form action="/admin/register-user" method="POST">
       <label>Nome:</label>
       <input type="text" name="nome" required><br><br>
       
       <label>Email:</label>
       <input type="email" name="email" required><br><br>
-
-      <input type="file" name="file">
       
-      <button type="submit">Salvar</button>
+      <button type="submit">Enter</button>
     </form>
 
     <a href="/user" target="_blank">Display users</a>
-    <a href="/admin-user">Manage users</a>
+    <a href="/admin/manage-user">Manage users</a>
+    <a href="/admin/logout">Logout</a>
 </body>
 </html>

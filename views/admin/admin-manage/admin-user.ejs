@@ -11,7 +11,7 @@
        <% console.log(user) %>
       <% user.forEach(users => { %>
         <li>
-          <form action="/admin-user/delete/<%= users.id %>" method="post">
+          <form action="/admin/manage-user/delete/<%= users.id %>" method="post">
             <%= users.nome %> - <%= users.email %>
             <button>Delete</button>
           </form>
@@ -21,6 +21,6 @@
       <li>Nenhum user encontrado</li>
     <% } %>
   </ul>
-  <a href="/">Voltar</a>
+  <a href="/admin">Voltar</a>
 </body>
 </html>
